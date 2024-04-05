@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { createBook } from "../../store/booksAlex";
+import {useNavigate} from 'react-router-dom';import { createBook } from "../../store/booksAlex";
 
 const CreateBookForm = ({ setShowModal }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
+
   const [errors, setErrors] = useState({
     title: "",
     year: "",
@@ -91,7 +91,7 @@ const CreateBookForm = ({ setShowModal }) => {
     if (createdBook) {
       setErrors([]);
       setShowModal(false);
-      history.push("/my-books");
+      navigate("/my-books");
     }
   };
 

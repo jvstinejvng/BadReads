@@ -1,11 +1,11 @@
 import { useState } from "react"
-import { NavLink, useHistory } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import './CSS/SearchBar.css'
 
 const SearchBookBar = ({ setSearchBar}) => {
-    
-    const history = useHistory()
+
+    const navigate = useNavigate();
     const books = useSelector(state => state.books)
     const [filterBooks, setFilterBooks] = useState([])
     const [searchable, setSearchable] = useState('')
@@ -26,7 +26,7 @@ const SearchBookBar = ({ setSearchBar}) => {
 
 
     const handleSubmit = () => {
-        history.push(`/books/${searchable}`)
+        navigate(`/books/${searchable}`)
         setFilterBooks([])
         setSearchBar(false)
     }

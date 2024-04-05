@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { editReviewThunk } from "../store/reviews";
+import {useNavigate} from 'react-router-dom';import { editReviewThunk } from "../store/reviews";
 import { getAllReviewsThunk } from "../store/reviews";
 import '../components/CSS/Reviews.css'
 
 
 const EditReview = ({ bookId, userId, userReview, userStars, displayLanding, reviewOfCurrentUser }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
+
   const currentUser = useSelector(state => state?.session?.user);
   const currentReviewId = reviewOfCurrentUser[0].id
   const [errors, setErrors] = useState([]);
@@ -46,7 +46,7 @@ const EditReview = ({ bookId, userId, userReview, userStars, displayLanding, rev
     if (editedBook) {
       setErrors([]);
       displayLanding();
-      history.push(`/books/${bookId}`);
+      navigate(`/books/${bookId}`);
     }
   }
   return (

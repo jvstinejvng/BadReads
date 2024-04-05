@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import {useNavigate} from 'react-router-dom';
+
 import {
     updateLibraryThunk,
     getUserBookshelvesThunk,
@@ -13,7 +14,8 @@ import "./CSS/Bookshelves.css";
 
 const Bookshelves = () => {
     //used in for onClick on individual books
-    const history = useHistory();
+
+    const navigate = useNavigate();
 
     const dispatch = useDispatch();
 
@@ -160,7 +162,7 @@ const Bookshelves = () => {
 
     //onClick for each book - just takes you to the books page
     const spotIDredirect = (id) => {
-        history.push(`/books/${id}`);
+        navigate(`/books/${id}`);
     };
 
     //JIC for page load

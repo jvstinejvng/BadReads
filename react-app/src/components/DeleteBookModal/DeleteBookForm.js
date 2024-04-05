@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { getAllBooksThunk, deleteBook } from "../../store/booksAlex";
+import {useNavigate} from 'react-router-dom';import { getAllBooksThunk, deleteBook } from "../../store/booksAlex";
 
 const DeleteBookForm = ({ setShowModal, userBook }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     dispatch(getAllBooksThunk());
@@ -17,7 +17,7 @@ const DeleteBookForm = ({ setShowModal, userBook }) => {
 
     if (deletedBook) {
       setShowModal(false);
-      history.push("/my-books");
+      navigate("/my-books");
     }
   };
 

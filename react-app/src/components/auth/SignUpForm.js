@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect, useHistory } from 'react-router-dom';
+import { Redirect, useNavigate } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import * as sessionActions from "../../store/session";
 import { createDefaultBookshelvesThunk, getUserBookshelvesThunk, } from '../../store/bookshelvesRed';
@@ -14,7 +14,8 @@ const SignUpForm = () => {
   const [repeatPassword, setRepeatPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
+
 
   const onSignUp = async (e) => {
 
@@ -58,7 +59,7 @@ const SignUpForm = () => {
     const email1 = 'demo@aa.io';
     const password1 = 'password';
     await dispatch(sessionActions.login(email1, password1));
-    history.push('/')
+    navigate('/')
   };
 
 

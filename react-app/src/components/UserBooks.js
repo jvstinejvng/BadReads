@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllBooksThunk } from "../store/booksAlex";
 import CreateBookModal from "./CreateBookModal";
@@ -9,7 +9,8 @@ import "./CSS/UserBooks.css";
 
 const UserBooks = () => {
   // console.log("INSIDE USER BOOKS COMPONENT");
-  const history = useHistory();
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -18,7 +19,7 @@ const UserBooks = () => {
       ? books
         .filter((book) => book.user_id === currentUser["id"])
         .sort((a, b) => b.id - a.id)
-      : history.push("/");
+      : navigate("/");
   };
 
   const currentUser = useSelector((state) => state?.session?.user);

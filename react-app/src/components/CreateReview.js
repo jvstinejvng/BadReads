@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import {useNavigate} from 'react-router-dom';
 import { createReviewThunk } from "../store/reviews";
 import { getAllReviewsThunk } from "../store/reviews";
 import '../components/CSS/Reviews.css'
@@ -8,7 +8,8 @@ import '../components/CSS/Reviews.css'
 
 const CreateReview = ({ bookId, userId, displayLanding }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
+
   const currentUser = useSelector(state => state?.session?.user);
   const [errors, setErrors] = useState([]);
   const [review, setReview] = useState('');
@@ -51,7 +52,7 @@ const CreateReview = ({ bookId, userId, displayLanding }) => {
     if (createdReview) {
       setErrors([]);
       displayLanding()
-      history.push(`/books/${bookId}`);
+      navigate(`/books/${bookId}`);
       //   need to work on this push
     }
   }

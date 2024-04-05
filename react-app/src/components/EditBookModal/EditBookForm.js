@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { getAllBooksThunk, updateBook } from "../../store/booksAlex";
+import {useNavigate} from 'react-router-dom';import { getAllBooksThunk, updateBook } from "../../store/booksAlex";
 
 const EditBookForm = ({ setShowModal, userBook }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  const navigate = useNavigate();
+
   const book = useSelector((state) => state?.books[userBook.id]);
 
   const [errors, setErrors] = useState({
@@ -100,7 +100,7 @@ const EditBookForm = ({ setShowModal, userBook }) => {
     if (updatedBook) {
       setErrors([]);
       setShowModal(false);
-      history.push("/my-books");
+      navigate("/my-books");
     }
   };
 
