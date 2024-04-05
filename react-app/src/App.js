@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import NavBar from './components/NavBar';
 import SplashPage from './components/SplashPage';
@@ -35,7 +35,7 @@ function App() {
   return (
     <BrowserRouter>
       {sessionUser && <NavBar />}
-      <Switch>
+      <Routes>
         <Route path='/' exact={true}>
           <SplashPage />
         </Route>
@@ -60,7 +60,7 @@ function App() {
         <Route>
           <NotFound />
         </Route>
-      </Switch>
+      </Routes>
     </BrowserRouter>
   );
 }
