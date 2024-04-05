@@ -2,7 +2,7 @@
 FROM python:3.9
 
 # REACT_APP_BASE_URL -> Your deployment URL
-ENV REACT_APP_BASE_URL
+ENV REACT_APP_BASE_URL=https://badreads.onrender.com
 
 # FLASK_APP -> entry point to your flask app
 ENV FLASK_APP=app
