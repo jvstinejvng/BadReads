@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect, useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import * as sessionActions from "../../store/session";
 import { createDefaultBookshelvesThunk, getUserBookshelvesThunk, } from '../../store/bookshelvesRed';
@@ -51,7 +51,7 @@ const SignUpForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/books' />;
+    return <Navigate to='/books' />;
   }
 
   const handleDemoUser = async (e) => {

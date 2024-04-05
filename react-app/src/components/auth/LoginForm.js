@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { login } from '../../store/session';
 import '../CSS/SplashPage.css'
 
@@ -29,7 +29,7 @@ const LoginForm = ({ setLogIn }) => {
   };
 
   if (user) {
-    return <Redirect to='/books' />;
+    return <Navigate to='/books' />;
   }
 
   const handleDemo = () => {

@@ -36,29 +36,44 @@ function App() {
     <BrowserRouter>
       {sessionUser && <NavBar />}
       <Routes>
-        <Route path='/' exact={true}>
-          <SplashPage />
+        <Route path='/' element={<SplashPage />} exact={true}>
+          {/* <SplashPage /> */}
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList />
-        </ProtectedRoute>
-        <Route path='/books' exact={true} >
-          <BooksList />
+        <Route
+        exact
+        path='/users'
+        element={
+            <ProtectedRoute>
+                <UsersList />
+            </ProtectedRoute>
+        }
+    />
+
+        <Route path='/books' element={<BooksList />} exact={true} >
+          {/* <BooksList /> */}
         </Route>
-        <Route path='/books/:id' exact={true} >
-          <BookById />
+        <Route path='/books/:id' element={<BookById />} exact={true} >
+          {/* <BookById /> */}
         </Route>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
-        <Route path='/bookshelves' exact={true}>
-          <Bookshelves />
+     
+
+        <Route
+        exact
+        path='/users/:userId'
+        element={
+            <ProtectedRoute>
+              <User />
+            </ProtectedRoute>
+        }
+    />
+        <Route path='/bookshelves'  element={<Bookshelves />} exact={true}>
+          {/* <Bookshelves /> */}
         </Route>
-        <Route path='/my-books' exact={true}>
-          <UserBooks />
+        <Route path='/my-books' element={<UserBooks />} exact={true}>
+          {/* <UserBooks /> */}
         </Route>
-        <Route>
-          <NotFound />
+        <Route  element={<NotFound />}>
+          {/* <NotFound /> */}
         </Route>
       </Routes>
     </BrowserRouter>
