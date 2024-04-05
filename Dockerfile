@@ -2,7 +2,7 @@
 FROM python:3.9
 
 # REACT_APP_BASE_URL -> Your deployment URL
-ENV REACT_APP_BASE_URL=https://aa-bad-reads.herokuapp.com/
+ENV REACT_APP_BASE_URL
 
 # FLASK_APP -> entry point to your flask app
 ENV FLASK_APP=app
