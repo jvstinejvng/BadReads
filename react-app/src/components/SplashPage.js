@@ -78,7 +78,7 @@ export default function SplashPage() {
                                     <p>Connect with Ben</p>
                                     <a href="https://github.com/benwaldee" target='_blank'>
                                         <div className='socialLinks'>
-                                            <img className="splashBook" src={IMAGE('githubbook.png')} alt='badreads logo' />
+                                            <img className="splashBook" src="githubbook.png" alt='badreads logo' />
                                         </div>
                                     </a>
                                     <a href="https://www.linkedin.com/in/benwaldee/" target='_blank'>
